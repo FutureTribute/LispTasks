@@ -1,0 +1,17 @@
+(ns task.core)
+(defn task [inList n]
+    (if (not (empty? inList))
+        (if (list? (first inList))
+            (if (= n 1)
+                (first inList)
+                (task (rest inList) (- n 1))
+            )
+            (task (rest inList) n)
+        )
+        nil
+    )
+)
+(println (task '((2) (3) 4 5 a (e r) g) 1))
+(println (task '((2) (3) 4 5 a (e r) g) 2))
+(println (task '((2) (3) 4 5 a (e r) g) 3))
+(println (task '((2) (3) 4 5 a (e r) g) 4))
